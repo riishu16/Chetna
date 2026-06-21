@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>C.H.E.T.N.A – Mental Health Assessment</title>
+  <link rel="shortcut icon" href="chetna fevicon.jpg" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:"Poppins",sans-serif;
+    background:linear-gradient(120deg,#2ECC71,#A8E6CF);
+    color:#2F3E46;overflow-x:hidden;}
+
+    /* Navbar */
+    header{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;align-items:center;
+      padding:20px 60px;background:rgba(255,255,255,0.3);backdrop-filter:blur(10px);box-shadow:0 4px 12px rgba(0,0,0,.05);z-index:1000}
+    header h1{font-size:1.6rem;font-weight:700;color:#1a61ca;}
+    nav a{margin:0 15px;text-decoration:none;font-weight:500;color:#334155;transition:.3s;}
+    nav a:hover{color:#F8F9F4;}
+
+    /* Hero */
+    .hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;overflow:hidden}
+    .hero h2{font-size:2.8rem;margin-bottom:20px;opacity:0;transform:scale(.8);transition:.5s;cursor:pointer}
+    .hero h2.loaded{opacity:1;transform:scale(1);}
+    .hero h2:hover{transform:scale(.9);color:#2563eb;}
+    .hero p{font-size:1.2rem;max-width:600px;opacity:0;transform:translateY(20px);}
+    .hero p.loaded{opacity:1;transform:translateY(0);transition:all 1s ease-out .3s;}
+
+    /* Blobs */
+    .blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.6;animation:blob 20s infinite;}
+    .blob1{width:400px;height:400px;background:#71f771 ;top:-10%;left:-10%;}
+    .blob2{width:300px;height:300px;background:#89ff89 ;bottom:-15%;right:-5%;animation-delay:5s;}
+    @keyframes blob{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(50px,-50px) scale(1.1);}}
+
+    section{padding:100px 60px;}
+    .two-col{font-size:20px;display:flex;flex-wrap:wrap;gap:40px;align-items:center;}
+    .left{flex:1;min-width:300px;}
+    .right{flex:1;display:grid;gap:20px;}
+
+    .card{background:rgba(255,255,255,0.5);backdrop-filter:blur(12px);padding:25px;border-radius:20px;
+      box-shadow:0 4px 12px rgba(0,0,0,.08);transition:.4s;}
+    .card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 8px 20px rgba(0,0,0,.15);}
+    .btn{display:inline-block;padding:10px 20px;margin-top:10px;background:#2563eb;color:#fff;border-radius:8px;text-decoration:none;cursor:pointer;}
+    .btn:hover{background:#1e40af;}
+
+    .categories h2{text-align:center;font-size:2rem;margin-bottom:40px;}
+    .cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;}
+    .cat{background:#fff;border-radius:16px;padding:20px;text-align:center;transition:.3s;}
+    .cat:hover{transform:translateY(-5px);background:#f0f9ff;}
+    .cat h3{margin-bottom:10px;color:#2563eb;}
+
+    footer{background:linear-gradient(90deg,#5cfdc2,#35c9e4);color:#081C15;text-align:center;padding:30px 20px;}
+    footer p{margin:5px 0;}
+    .reveal{opacity:0;transform:translateY(40px);transition:.8s;}
+    .reveal.active{opacity:1;transform:translateY(0);}
+
+    /* Assessment */
+    #assessment{display:none;padding:100px 20px;}
+    .panel{background:#fff;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.1);padding:30px;margin-bottom:20px;}
+    .panel h2{margin-bottom:20px;}
+
+    .form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+    .form-grid input,.form-grid select{width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;}
+
+    .category-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;}
+    .category-card{padding:15px;text-align:center;border-radius:12px;background:#2563eb;color:#fff;cursor:pointer;transition:.3s;}
+    .category-card:hover{background:#1e40af;}
+  </style>
+</head>
+<body>
+
+<!-- Landing -->
+<div id="landing">
+  <header>
+    <h1>C.H.E.T.N.A</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#categories">Categories</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <h2 id="hero-title">Promote Mental Health, Nurture Wellbeing</h2>
+    <p id="hero-subtitle">A unique platform to assess, understand, and improve your emotional health with C.H.E.T.N.A.</p>
+  </section>
+
+  <section class="two-col" id="about">
+    <div class="left reveal">
+      <h2>About C.H.E.T.N.A</h2>
+      <p>C.H.E.T.N.A empowers students and professionals to reflect on their mental wellbeing through structured self-assessments.
+
+      At CHETNA, we believe in the power of awareness, compassion, and action. Our mission is to create meaningful change by bringing people together,
+      inspiring new ideas, and driving impact where it matters most. Guided by our core values of empathy, transparency, and innovation, 
+      CHETNA serves as a platform for growth—whether it’s empowering communities, nurturing creativity, or advancing knowledge.
+      We are more than just a name—we are a movement towards progress, driven by the belief that small steps can spark big transformations.
+      </p>
+    </div>
+    <div class="right reveal">
+      <div class="card">
+        <h3>📘 Academic Evaluation</h3>
+        <p>Track how academic stress impacts your focus, motivation, and performance.</p>
+        <button id="btn-academic" class="btn">Start Assessment</button>
+      </div>
+      <div class="card">
+        <h3>💼 Professional Evaluation</h3>
+        <p>Evaluate your work-life balance and burnout risk in professional settings.</p>
+        <button id="btn-professional" class="btn">Start Assessment</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="categories" id="categories">
+    <h2 class="reveal">Why Mental Health Matters?</h2>
+    <div class="cat-grid">
+      <div class="cat reveal"><h3>Depression</h3><p>Persistent sadness drains energy and focus.</p></div>
+      <div class="cat reveal"><h3>Anxiety</h3><p>Chronic worry disrupts calm and productivity.</p></div>
+      <div class="cat reveal"><h3>Stress & Burnout</h3><p>Constant stress leads to exhaustion.</p></div>
+      <div class="cat reveal"><h3>Bipolar Disorder</h3><p>Extreme mood swings affect stability.</p></div>
+      <div class="cat reveal"><h3>OCD</h3><p>Compulsions disrupt routines.</p></div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <p>© 2025 C.H.E.T.N.A Project | All Rights Reserved</p>
+    <p>📧 support@chetna.org | 📞 +91 98765 43210</p>
+  </footer>
+</div>
+
+<!-- Assessment -->
+<div id="assessment">
+  <!-- Step 1: Details -->
+  <section id="step-details" class="panel">
+    <h2>Enter Your Details</h2>
+    <div class="form-grid">
+      <div>
+        <label for="name">Your Name</label>
+        <input id="name" type="text" placeholder="Enter your full name">
+      </div>
+      <div>
+        <label for="age">Age</label>
+        <input id="age" type="number" placeholder="Enter your age">
+      </div>
+      <div>
+        <label for="role">Role</label>
+        <select id="role">
+          <option value="Student">Student</option>
+          <option value="Professional">Professional</option>
+        </select>
+      </div>
+      <div>
+        <label for="org">Institution / Company</label>
+        <input id="org" type="text" placeholder="Enter institution/company">
+      </div>
+    </div>
+    <button class="btn" id="to-categories">Continue</button>
+  </section>
+
+  <!-- Step 2: Categories -->
+  <section id="step-categories" class="panel" style="display:none;">
+    <h2>Choose a Category</h2>
+    <div class="category-grid" id="category-list"></div>
+  </section>
+
+  <!-- Step 3: Quiz -->
+  <section id="step-quiz" class="panel" style="display:none;">
+    <h2 id="quiz-title"></h2>
+    <div id="quiz-questions"></div>
+    <button class="btn" id="submit-quiz">Submit</button>
+  </section>
+
+  <!-- Step 4: Result -->
+  <section id="step-result" class="panel" style="display:none;">
+    <h2>Result</h2>
+    <div id="result-text"></div>
+    <button class="btn" id="restart">Restart</button>
+  </section>
+</div>
+
+<script src="app.js"></script>
+<script>
+  window.addEventListener("load", () => {
+    document.getElementById("hero-title").classList.add("loaded");
+    document.getElementById("hero-subtitle").classList.add("loaded");
+  });
+  function reveal() {
+    document.querySelectorAll(".reveal").forEach(el=>{
+      if(el.getBoundingClientRect().top < window.innerHeight-100) el.classList.add("active");
+    });
+  }
+  window.addEventListener("scroll", reveal); reveal();
+</script>
+</body>
+</html>

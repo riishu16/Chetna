@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>C.H.E.T.N.A – Mental Health Assessment</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Landing -->
+<div id="landing">
+  <header>
+    <h1>C.H.E.T.N.A</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#categories">Categories</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <!-- Language Selector -->
+    <select id="lang-switcher" class="lang-select">
+      <option value="en" selected>🌐 English</option>
+      <option value="hi">हिंदी</option>
+      <option value="hinglish">Hinglish</option>
+    </select>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <h2 id="hero-title">Promote Mental Health, Nurture Wellbeing</h2>
+    <p id="hero-subtitle">A unique platform to assess, understand, and improve your emotional health with C.H.E.T.N.A.</p>
+  </section>
+
+  <section class="two-col" id="about">
+    <div class="left reveal">
+      <h2>About C.H.E.T.N.A</h2>
+      <p>C.H.E.T.N.A empowers students and professionals to reflect on their mental wellbeing through structured self-assessments.
+
+      At CHETNA, we believe in the power of awareness, compassion, and action. Our mission is to create meaningful change by bringing people together,
+      inspiring new ideas, and driving impact where it matters most. Guided by our core values of empathy, transparency, and innovation, 
+      CHETNA serves as a platform for growth—whether it’s empowering communities, nurturing creativity, or advancing knowledge.
+      We are more than just a name—we are a movement towards progress, driven by the belief that small steps can spark big transformations.
+      </p>
+    </div>
+    <div class="right reveal">
+      <div class="card">
+        <h3>📘 Academic Evaluation</h3>
+        <p>Track how academic stress impacts your focus, motivation, and performance.</p>
+        <button id="btn-academic" class="btn">Start Assessment</button>
+      </div>
+      <div class="card">
+        <h3>💼 Professional Evaluation</h3>
+        <p>Evaluate your work-life balance and burnout risk in professional settings.</p>
+        <button id="btn-professional" class="btn">Start Assessment</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="categories" id="categories">
+    <h2 class="reveal">Why Mental Health Matters?</h2>
+    <div class="cat-grid">
+      <div class="cat reveal"><h3>Depression</h3><p>Persistent sadness drains energy and focus.</p></div>
+      <div class="cat reveal"><h3>Anxiety</h3><p>Chronic worry disrupts calm and productivity.</p></div>
+      <div class="cat reveal"><h3>Stress & Burnout</h3><p>Constant stress leads to exhaustion.</p></div>
+      <div class="cat reveal"><h3>Bipolar Disorder</h3><p>Extreme mood swings affect stability.</p></div>
+      <div class="cat reveal"><h3>OCD</h3><p>Compulsions disrupt routines.</p></div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <p>© 2025 C.H.E.T.N.A Project | All Rights Reserved</p>
+    <p>📧 support@chetna.org | 📞 +91 98765 43210</p>
+  </footer>
+</div>
+
+<!-- Assessment -->
+<div id="assessment">
+  <!-- Step 1: Details -->
+  <section id="step-details" class="panel">
+    <h2>Enter Your Details</h2>
+    <div class="form-grid">
+      <div>
+        <label for="name">Your Name</label>
+        <input id="name" type="text" placeholder="Enter your full name">
+      </div>
+      <div>
+        <label for="age">Age</label>
+        <input id="age" type="number" placeholder="Enter your age">
+      </div>
+      <div>
+        <label for="role">Role</label>
+        <select id="role">
+          <option value="Student">Student</option>
+          <option value="Professional">Professional</option>
+        </select>
+      </div>
+      <div>
+        <label for="org">Institution / Company</label>
+        <input id="org" type="text" placeholder="Enter institution/company">
+      </div>
+    </div>
+    <button class="btn" id="to-categories">Continue</button>
+  </section>
+
+  <!-- Step 2: Quiz -->
+  <section id="step-quiz" class="panel" style="display:none;">
+    <h2 id="quiz-title"></h2>
+    <div id="quiz-questions"></div>
+    <button class="btn" id="submit-quiz">Submit</button>
+  </section>
+
+  <!-- Step 3: Result -->
+  <section id="step-result" class="panel" style="display:none;">
+    <h2>Result</h2>
+    <div id="result-text"></div>
+    <button class="btn" id="restart">Restart</button>
+  </section>
+</div>
+
+<script src="app.js"></script>
+<script>
+  window.addEventListener("load", () => {
+    document.getElementById("hero-title").classList.add("loaded");
+    document.getElementById("hero-subtitle").classList.add("loaded");
+  });
+  function reveal() {
+    document.querySelectorAll(".reveal").forEach(el=>{
+      if(el.getBoundingClientRect().top < window.innerHeight-100) el.classList.add("active");
+    });
+  }
+  window.addEventListener("scroll", reveal); reveal();
+
+  // Language Switcher Event
+  document.getElementById("lang-switcher").addEventListener("change", (e)=>{
+    LANG = e.target.value;
+    if(typeof renderQuestion === "function") renderQuestion();
+  });
+</script>
+</body>
+</html>
