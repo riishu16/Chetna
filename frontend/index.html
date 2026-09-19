@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#1f8a5b">
+<title>CHETNA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Noto+Serif+Devanagari:wght@600&family=Sora:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="blob b1" aria-hidden="true"></div><div class="blob b2" aria-hidden="true"></div>
+<header class="top">
+  <button class="brand" data-go="home"><i class="mark"></i><span lang="hi">चेतना</span><b>CHETNA</b></button>
+  <nav>
+    <button data-go="home" data-scroll="tests" data-t="nav_tests"></button>
+    <button data-go="journey" data-t="nav_journey"></button>
+  </nav>
+  <div class="lang" role="group" aria-label="Language">
+    <button data-lang="en">EN</button><button data-lang="hi">Hinglish</button>
+  </div>
+</header>
+
+<main>
+  <section class="view" id="v-home">
+    <div class="hero">
+      <div>
+        <h1 data-t="hero_h"></h1>
+        <p class="lede" data-t="hero_p"></p>
+        <button class="btn" data-scroll="tests" data-t="cta"></button>
+        <ul class="chips"><li data-t="chip1"></li><li data-t="chip2"></li><li data-t="chip3"></li></ul>
+      </div>
+      <div class="art" aria-hidden="true"><i class="ring r1"></i><i class="ring r2"></i><i class="orb"></i><i class="leaf l1"></i><i class="leaf l2"></i><i class="leaf l3"></i></div>
+    </div>
+    <h2 id="tests" data-t="tests_h"></h2>
+    <div class="grid" id="grid"></div>
+    <p class="note err" id="homeErr" hidden></p>
+    <h2 class="gap" data-t="vals_h"></h2>
+    <div class="values">
+      <div class="rv"><h3 data-t="v1"></h3><p data-t="v1p"></p></div>
+      <div class="rv" style="--dl:.1s"><h3 data-t="v2"></h3><p data-t="v2p"></p></div>
+      <div class="rv" style="--dl:.2s"><h3 data-t="v3"></h3><p data-t="v3p"></p></div>
+    </div>
+  </section>
+
+  <section class="view" id="v-test" hidden>
+    <div class="card narrow">
+      <div class="qhead"><b id="tname"></b><span id="qcount"></span></div>
+      <div class="bar"><i id="bar"></i></div>
+      <p class="hint" id="qhint"></p>
+      <h2 id="q"></h2>
+      <div class="opts" id="opts"></div>
+      <button class="link" id="back" data-t="back"></button>
+    </div>
+  </section>
+
+  <section class="view" id="v-safety" hidden>
+    <div class="card narrow alert">
+      <h2 data-t="sf_h"></h2>
+      <p class="lede" data-t="sf_p"></p>
+      <ul class="lines" id="safetyLines"></ul>
+      <button class="btn" id="toResult" data-t="sf_btn"></button>
+    </div>
+  </section>
+
+  <section class="view" id="v-result" hidden>
+    <div class="card narrow">
+      <b id="rname"></b>
+      <div class="gauge" id="gauge">
+        <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" class="track"/><circle cx="60" cy="60" r="52" class="arc" id="arc"/></svg>
+        <div><strong id="sc"></strong><small id="sm"></small></div>
+      </div>
+      <h2 id="rlabel"></h2>
+      <p class="lede" id="rmsg"></p>
+      <ul class="lines" id="rlines"></ul>
+      <h3 data-t="tips_h"></h3>
+      <ul class="tips" id="tips"></ul>
+      <div class="breath">
+        <i class="borb" id="borb"></i>
+        <div><p class="cue" id="cue" aria-live="polite"></p><button class="btn ghost" id="breathe"></button></div>
+      </div>
+      <div class="row">
+        <button class="btn" data-go="journey" data-t="to_journey"></button>
+        <button class="btn ghost" data-go="home" data-scroll="tests" data-t="another"></button>
+      </div>
+      <p class="note" id="rsave"></p>
+      <p class="note" data-t="disc"></p>
+    </div>
+  </section>
+
+  <section class="view" id="v-journey" hidden>
+    <div class="card narrow" id="auth" hidden>
+      <h2 data-t="auth_h"></h2>
+      <p class="note need" id="authNote" data-t="auth_need" hidden></p>
+      <p class="lede" data-t="auth_p"></p>
+      <form id="authForm">
+        <input id="fName" data-tp="name" autocomplete="name" hidden>
+        <input id="fEmail" type="email" data-tp="email" autocomplete="email" required>
+        <input id="fPass" type="password" data-tp="pass" minlength="8" autocomplete="current-password" required>
+        <button class="btn" type="submit" id="fSubmit"></button>
+        <button class="link" type="button" id="fToggle"></button>
+      </form>
+    </div>
+    <div id="dash" hidden>
+      <div class="card narrow">
+        <h2 id="hello"></h2>
+        <p class="lede" data-t="hist_p"></p>
+        <div class="hist" id="hist"></div>
+        <div class="row"><button class="btn" data-go="home" data-scroll="tests" data-t="another"></button></div>
+      </div>
+      <div class="card narrow">
+        <h2 data-t="trend_h"></h2>
+        <div id="chart"></div>
+      </div>
+      <div class="card narrow">
+        <h2 data-t="mood_h"></h2>
+        <div class="moods" id="moods"></div>
+        <p class="hint" id="moodLog"></p>
+      </div>
+      <button class="link" id="logout" data-t="logout"></button>
+    </div>
+  </section>
+</main>
+
+<footer data-t="foot"></footer>
+<div class="toast" id="toast" role="status"></div>
+<script src="app.js"></script>
+</body>
+</html>
